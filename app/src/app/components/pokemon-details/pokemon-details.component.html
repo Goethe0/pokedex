@@ -1,0 +1,44 @@
+<div class="pokemon-details-wrapper">
+  <mat-card *ngIf="isLoading">
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </mat-card>
+
+  <mat-card *ngIf="!isLoading && pokemon">
+    <mat-card-actions class="btn-back">
+      <button mat-raised-button color="primary" (click)="goBack()">
+        Back
+      </button>
+    </mat-card-actions>
+    <mat-card-header>
+      <mat-card-title>{{ pokemon.name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="pokemon.sprites.front_default"
+      alt="{{ pokemon.name }}"
+    />
+    <mat-card-content>
+      <p>Experience: {{ pokemon.base_experience }}</p>
+      <p>Height: {{ pokemon.height }}</p>
+      <p>Weight: {{ pokemon.weight }}</p>
+      <p>Abilities:
+        <span *ngFor="let ability of pokemon?.abilities; let i = index">
+        {{ ability.ability.name }}<span *ngIf="i < pokemon.abilities.length - 1">, </span>
+      </span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="!isLoading && !pokemon">
+    <mat-card-content>
+      <p>No Pokemon details available.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="goBack()">
+        Back to Main Page
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

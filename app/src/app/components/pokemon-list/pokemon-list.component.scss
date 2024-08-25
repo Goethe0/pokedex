@@ -1,0 +1,105 @@
+.list-wrapper {
+  padding: 40px;
+  background: linear-gradient(135deg, #D3D3D3, #808080);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  overflow: scroll;
+
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+
+    .search-field {
+      width: 100%;
+      max-width: 400px;
+
+      mat-label {
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      input {
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #ffffff;
+        width: 90%;
+      }
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+
+      button {
+        padding: 12px 24px;
+        margin: 0 12px;
+        border-radius: 8px;
+        font-size: 1.1em;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+
+    .pokemon-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 16px;
+      padding: 20px;
+      color: #ffffff;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      a {
+        color: #ffffff;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  .load-more-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px auto;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    background-color: #808080;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background-color: #808080;
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-top: 24px;
+  }
+}
