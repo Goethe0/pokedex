@@ -39,7 +39,7 @@ export class PokemonService {
     const apiUrl = `https://pokeapi.co/api/v2/pokemon?limit=5000`;
     return firstValueFrom(this.httpService.get(apiUrl)).then(
       (response) => {
-        const results = response.data.results.filter(obj => obj.name.includes(name));
+        const results = response.data.results.filter(obj => obj.name.includes(name?.toLowerCase()));
         return {...response.data, results, count: results.length };
       }
     );
